@@ -1,0 +1,46 @@
+class Stack:
+    def __init__(self):
+        self.stack = []
+
+    def push(self, item):
+        self.stack.append(item)
+
+    def is_empty(self):
+        return len(self.stack) == 0
+
+    def pop(self):
+        if not self.is_empty():
+            return self.stack.pop()
+        else:
+            return False
+    
+    def size(self):
+        return len(self.stack)
+
+
+class Solution:
+    def __init__(self):
+        self.pilha = Stack()
+
+    def isValid(self, s: str) -> bool:
+        for i in s:
+            if i == '(':
+                self.pilha.push('(')
+            elif i == ')':
+                if self.pilha.is_empty() or self.pilha.pop() != '(':
+                    return False
+            elif i == '{':
+                self.pilha.push('{')
+            elif i == '}':
+                if self.pilha.is_empty() or self.pilha.pop() != '{':
+                    return False
+            elif i == '[':
+                self.pilha.push('[')
+            elif i == ']':
+                if self.pilha.is_empty() or self.pilha.pop() != '[':
+                    return False
+
+        return self.pilha.is_empty()
+
+
+
