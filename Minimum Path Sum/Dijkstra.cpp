@@ -11,7 +11,7 @@ int Dijkstra(vector<vector<int>> & grid){
     priority_queue<pair<int, pair<int, int>>, vector<pair<int, pair<int, int>>>, greater<pair<int, pair<int, int>>>> pq;
     pq.push({grid[0][0], {0, 0}});
     
-    vector<vector<int>> directions = {{1, 0}, {0, 1}, {-1, 0}, {0, -1}};
+    vector<vector<int>> directions = {{1, 0}, {0, 1}};
     
     while (!pq.empty()) {
         auto [cost, cell] = pq.top();
